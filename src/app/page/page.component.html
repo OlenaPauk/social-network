@@ -1,0 +1,141 @@
+<div class="login-container" *ngIf='showLoginPage'>
+    <div class="newUser" *ngIf="!user?.provider">
+        <span class="signIn">Sign In</span>
+        <form #userform="ngForm" class="inputs">
+            <div class="input input-email">
+                <input type="email" name="userEmail" id="userEmail" placeholder="Your email"
+                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" [(ngModel)]='userEmail' maxlength="30"
+                    required />
+            </div>
+            <div class="input input-pass">
+                <input type="password" name="userPass" id="userPass" maxlength="30" placeholder="Your password"
+                    [(ngModel)]='userPass' required />
+            </div>
+            <button [disabled]="!(!(userform.controls.userEmail?.errors) && !(userform.controls.userPass?.errors))"
+                (click)='login()' class="btn-sign-in">
+                Log in</button>
+        </form>
+        <div class="or"><span>or</span></div>
+        <div class="icons">
+            <i class="fab fa-google fa-2x" (click)="signInWithGoogle()"></i>
+            <i class="fab fa-facebook fa-2x" (click)="signInWithFB()"></i>
+            <i class="fab fa-amazon fa-2x" (click)="signInWithAmazon()"></i>
+        </div>
+    </div>
+    <div *ngIf="user?.provider" class="newUser login">
+        <div class="login-body">
+            <div class="img">
+                <img *ngIf="user.photoUrl" src="{{ user.photoUrl }}">
+            </div>
+
+            <div class="inform-user">
+                <span class="user-email">{{ user.name }}</span>
+                <span class="user-email">{{ user.email }}</span>
+                <span class="user-provider">Logged in with {{ user.provider }}</span>
+            </div>
+
+            <button (click)='continueAs()' class="btn-sign-in">Continue as {{ user.name }} </button>
+        </div>
+
+    </div>
+</div>
+<div class="container" *ngIf='!showLoginPage'>
+    <div class="header-out">
+        <button (click)="signOut()" class="log-out">
+            Log out
+        </button>
+    </div>
+    <div class="container-page">
+        <div class="left-page">
+            <div class="search-container">
+                <div class="img" *ngIf="user">
+                    <img *ngIf="user.photoUrl" src="{{ user.photoUrl }}">
+
+                </div>
+                <div class="search-chat">
+                    <input type="text" placeholder='&#xf002; Search or start new chat' [(ngModel)]='searchName'>
+                </div>
+            </div>
+            <div class="chats">
+                <p class="chats-title">Chats</p>
+                <ul>
+                    <li *ngFor='let contact  of contacts | contactsFilter:searchName'
+                        (click)="chooseContact(contact.id)">
+                        <div class="img">
+                            <img src="{{contact.image}}">
+
+                        </div>
+
+                        <div class="user-inform">
+                            <span class="user-name">{{contact.name}}</span> <br>
+                            <span class="last-message">{{contact.lastMessage}}</span>
+                        </div>
+                        <span class="date">{{contact.lastMessageDate | date:'mediumDate'}}</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="chat-menu">
+                <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+                <label for="openSidebarMenu" class="sidebarIconToggle">
+                    <div class="spinner diagonal part-1"></div>
+                    <div class="spinner horizontal"></div>
+                    <div class="spinner diagonal part-2"></div>
+                </label>
+                <div id="sidebarMenu">
+                    <div class="main-content-wrapper">
+                        <p class="chats-title">Chats</p>
+                        <ul>
+                            <li *ngFor='let contact  of contacts | contactsFilter:searchName'
+                                (click)="chooseContact(contact.id)">
+                                <div class="img">
+                                    <img src="{{contact.image}}">
+
+                                </div>
+
+                                <div class="user-inform">
+                                    <span class="user-name">{{contact.name}}</span> <br>
+                                    <span class="last-message">{{contact.lastMessage}}</span>
+                                </div>
+                                <span class="date">{{contact.lastMessageDate | date:'mediumDate'}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-page">
+            <div class="chat-title">
+                <div class="img">
+                    <img src="{{selectedContact.image}}">
+
+                </div>
+                <div><span>{{selectedContact.name}}</span></div>
+            </div>
+
+            <div class="chat-body">
+                <div class="message" *ngFor='let userMessage of selectedMessages'>
+                    <div class="user-img">
+                        <img src="{{selectedContact.image}}" *ngIf="(userMessage.senderId!==0)">
+                    </div>
+
+                    <div class="text-message"
+                        [ngClass]=" {'light-message':userMessage.senderId===0,'dark-message':userMessage.senderId!==0}">
+                        <span>{{userMessage.message}}</span>
+                    </div>
+
+                    <div class="time-message"
+                        [ngClass]=" {'time-my-message':userMessage.senderId===0,'time-user-message':userMessage.senderId!==0}">
+                        <span>{{userMessage.date | date : 'short' }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-newMessage">
+                <input type="text" placeholder="Type your message" [(ngModel)]='myMessage'
+                    (keydown.enter)="addMessage(selectedContact.id)">
+                <button (click)='addMessage(selectedContact.id)'>
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>

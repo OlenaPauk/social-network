@@ -1,0 +1,29 @@
+@media only screen and (max-width: 1185px) {
+  .container {
+    width: 90%;
+    .container-page {
+      .left-page {
+        width: 40%;
+        .search-container {
+          .img {
+            margin-top: 5px;
+          }
+          .search-chat {
+            margin-bottom: 1rem;
+          }
+        }
+        .chats {
+          ul {
+            li {
+              .img::after {
+                position: relative;
+                top: 0px;
+                right: 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

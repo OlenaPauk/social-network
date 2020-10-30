@@ -1,0 +1,52 @@
+@media only screen and (max-width: 600px) {
+  .login-container {
+    .newUser {
+      width: 50%;
+      .icons {
+        width: 50%;
+      }
+    }
+    .login {
+      width: 45%;
+    }
+  }
+  .container {
+    width: 90%;
+    .container-page {
+      .left-page {
+        width: 40%;
+        .search-container {
+          .search-chat {
+            width: 85%;
+            margin-left: -1rem;
+          }
+        }
+        .chats {
+          ul {
+            li {
+              display: flex;
+              flex-direction: row;
+              flex-wrap: wrap;
+              .img {
+                width: 30%;
+              }
+              .img::after {
+                bottom: 10px;
+                left: 30px;
+              }
+              .user-inform {
+                width: 60%;
+                margin-left: 5px;
+              }
+              .date {
+                width: 50%;
+                margin-top: -10px;
+                margin-left: 40px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
