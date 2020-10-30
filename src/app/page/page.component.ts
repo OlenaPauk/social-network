@@ -74,7 +74,8 @@ export class PageComponent implements OnInit {
   }
   chooseContact(contactId: number) {
     this.selectedContact = this.contacts.find(i => i.id === contactId);
-    this.selectMessages(contactId);
+    this.myMessage = '';
+    this.selectMessages();
   }
 
   //Login
@@ -139,10 +140,10 @@ export class PageComponent implements OnInit {
     this.contacts = _.sortBy(this.contacts, u => -(new Date(u.lastMessageDate || 0)));
   }
 
-  selectMessages(contactId: number) {
+  selectMessages() {
     this.selectedMessages = _.filter(
       this.allMessage,
-      msg => (msg.senderId === contactId && msg.receiverId === 0) || (msg.senderId === 0 && msg.receiverId === contactId))
+      msg => (msg.senderId === this.selectedContact.id && msg.receiverId === 0) || (msg.senderId === 0 && msg.receiverId === this.selectedContact.id))
       .sort((a, b) => a.id - b.id);
   }
 
@@ -160,7 +161,7 @@ export class PageComponent implements OnInit {
         this.allMessage.push(m);
 
         this.setContactMessage(contactId, m.message, m.date);
-        this.selectMessages(contactId);
+        this.selectMessages();
         this.sortContactsByLastMessage();
 
         localStorage.setItem("Messages", JSON.stringify(this.allMessage))
@@ -183,10 +184,10 @@ export class PageComponent implements OnInit {
     this.myMessage = '';
 
     this.setContactMessage(contactId, m.message, m.date);
-    this.selectMessages(contactId);
+    this.selectMessages();
     this.sortContactsByLastMessage();
 
-    await this.delay(10000);
+    await this.delay(3000);
     this.getMessage(contactId);
   }
 
