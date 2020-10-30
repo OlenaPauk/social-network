@@ -14,7 +14,7 @@
     align-items: center;
     border: 1px solid rgb(117, 118, 128);
     border-radius: 5px;
-    .signIn {
+    .logIn {
       font-size: 2rem;
       margin: 1rem 0;
       color: rgb(128, 125, 125);
@@ -143,13 +143,19 @@
       }
 
       button {
-        margin: 1rem auto;
         padding: 0.5rem;
-        background-color: rgb(17, 128, 7);
         color: rgb(247, 247, 247);
         border-radius: 5px;
         border-width: 0;
         cursor: pointer;
+      }
+      .btn-sign-in {
+        background-color: rgb(17, 128, 7);
+        margin: 1rem auto 0.5rem auto;
+      }
+      .cansel {
+        background-color: rgb(19, 63, 158);
+        margin: 0.5rem auto;
       }
     }
   }

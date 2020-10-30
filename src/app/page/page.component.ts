@@ -113,7 +113,6 @@ export class PageComponent implements OnInit {
       this.userEmail = '';
       this.userPass = '';
       this.showLoginPage = false;
-
     }
   }
 
@@ -122,7 +121,10 @@ export class PageComponent implements OnInit {
     this.showLoginPage = true;
     localStorage.removeItem("User");
   }
-
+  cansel() {
+    this.showLoginPage = true;
+    this.user = null;
+  }
   continueAs() {
     this.loggedIn = true;
     this.showLoginPage = false;

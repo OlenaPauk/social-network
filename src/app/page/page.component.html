@@ -1,6 +1,6 @@
 <div class="login-container" *ngIf='showLoginPage'>
     <div class="newUser" *ngIf="!user?.provider">
-        <span class="signIn">Sign In</span>
+        <span class="logIn">Login</span>
         <form #userform="ngForm" class="inputs">
             <div class="input input-email">
                 <input type="email" name="userEmail" id="userEmail" placeholder="Your email"
@@ -34,6 +34,7 @@
                 <span class="user-provider">Logged in with {{ user.provider }}</span>
             </div>
             <button (click)='continueAs()' class="btn-sign-in">Continue as {{ user.name }} </button>
+            <button (click)='cansel()' class="cansel">Go to login</button>
         </div>
     </div>
 </div>
