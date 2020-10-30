@@ -73,8 +73,10 @@ export class PageComponent implements OnInit {
     this.sortContactsByLastMessage();
   }
   chooseContact(contactId: number) {
+    if (contactId !== this.selectedContact?.id) {
+      this.myMessage = '';
+    }
     this.selectedContact = this.contacts.find(i => i.id === contactId);
-    this.myMessage = '';
     this.selectMessages();
   }
 
@@ -113,7 +115,6 @@ export class PageComponent implements OnInit {
       this.showLoginPage = false;
 
     }
-
   }
 
   signOut(): void {
@@ -121,12 +122,14 @@ export class PageComponent implements OnInit {
     this.showLoginPage = true;
     localStorage.removeItem("User");
   }
+
   continueAs() {
     this.loggedIn = true;
     this.showLoginPage = false;
 
     localStorage.setItem("User", JSON.stringify(this.user))
   }
+
   //
 
   //
@@ -187,7 +190,7 @@ export class PageComponent implements OnInit {
     this.selectMessages();
     this.sortContactsByLastMessage();
 
-    await this.delay(3000);
+    await this.delay(10000);
     this.getMessage(contactId);
   }
 

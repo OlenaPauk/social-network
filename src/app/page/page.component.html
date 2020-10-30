@@ -33,10 +33,8 @@
                 <span class="user-email">{{ user.email }}</span>
                 <span class="user-provider">Logged in with {{ user.provider }}</span>
             </div>
-
             <button (click)='continueAs()' class="btn-sign-in">Continue as {{ user.name }} </button>
         </div>
-
     </div>
 </div>
 <div class="container" *ngIf='!showLoginPage'>
