@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import {
   GoogleLoginProvider,
-  AmazonLoginProvider,
+  // AmazonLoginProvider,
   FacebookLoginProvider,
 } from 'angularx-social-login';
 
@@ -45,12 +45,12 @@ import {
               '819875380962-jq2eis9mab5p80e46ccq6k6qfeliq34m.apps.googleusercontent.com'
             ),
           },
-          {
-            id: AmazonLoginProvider.PROVIDER_ID,
-            provider: new AmazonLoginProvider(
-              'amzn1.application-oa2-client.f074ae67c0a146b6902cc0c4a3297935'
-            ),
-          },
+          // {
+          //   id: AmazonLoginProvider.PROVIDER_ID,
+          //   provider: new AmazonLoginProvider(
+          //     'amzn1.application-oa2-client.f074ae67c0a146b6902cc0c4a3297935'
+          //   ),
+          // },
           {
             id: FacebookLoginProvider.PROVIDER_ID,
             provider: new FacebookLoginProvider('808839069929003'),

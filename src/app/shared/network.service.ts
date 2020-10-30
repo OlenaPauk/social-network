@@ -14,70 +14,70 @@ export class NetworkService {
     {
       id: 1,
       name: 'Alice Freeman',
-      image: '../../assets/img/img1.png',
+      image: 'assets/img/img1.png',
       lastMessageDate: new Date(),
       lastMessage: ''
     },
     {
       id: 2,
       name: 'Anna',
-      image: '../../assets/img/img2.png',
+      image: 'assets/img/img2.png',
       lastMessageDate: new Date(),
       lastMessage: ''
     },
     {
       id: 3,
       name: 'Johnny',
-      image: '../../assets/img/img3.png',
+      image: 'assets/img/img3.png',
       lastMessageDate: new Date(),
       lastMessage: ''
     },
     {
       id: 4,
       name: 'Charlie Chaplin',
-      image: '../../assets/img/img4.png',
+      image: 'assets/img/img4.png',
       lastMessageDate: new Date(),
       lastMessage: ''
     },
     {
       id: 5,
       name: 'Betty',
-      image: '../../assets/img/img5.png',
+      image: 'assets/img/img5.png',
       lastMessageDate: new Date(),
       lastMessage: ''
     },
     {
       id: 6,
       name: 'Christy',
-      image: '../../assets/img/img6.png',
+      image: 'assets/img/img6.png',
       lastMessageDate: new Date(),
       lastMessage: ''
     },
     {
       id: 7,
       name: 'Elroy Smith',
-      image: '../../assets/img/img7.png',
+      image: 'assets/img/img7.png',
       lastMessageDate: new Date(),
       lastMessage: ''
     },
     {
       id: 8,
       name: 'Hanna',
-      image: '../../assets/img/img8.png',
+      image: 'assets/img/img8.png',
       lastMessageDate: new Date(),
       lastMessage: ''
     },
     {
       id: 9,
       name: 'Bill',
-      image: '../../assets/img/img9.png',
+      image: 'assets/img/img9.png',
       lastMessageDate: new Date(),
       lastMessage: ''
     },
     {
       id: 10,
       name: 'Harley Quinn',
-      image: '../../assets/img/img10.png',
+      image: 'assets/img/img10.png',
       lastMessageDate: new Date(),
       lastMessage: ''
     }

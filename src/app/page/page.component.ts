@@ -81,9 +81,9 @@ export class PageComponent implements OnInit {
   signInWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID)
   }
-  signInWithAmazon(): void {
-    this.authService.signIn(AmazonLoginProvider.PROVIDER_ID);
-  }
+  // signInWithAmazon(): void {
+  //   this.authService.signIn(AmazonLoginProvider.PROVIDER_ID);
+  // }
   signInWithFB(): void {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
   }
@@ -95,7 +95,7 @@ export class PageComponent implements OnInit {
       id: '',
       email: this.userEmail,
       name: this.userEmail,
-      photoUrl: '../../assets/img/newUser.png',
+      photoUrl: 'assets/img/newUser.png',
       firstName: '',
       lastName: '',
       authToken: '',
@@ -112,7 +112,6 @@ export class PageComponent implements OnInit {
       this.showLoginPage = false;
 
     }
-
 
   }
 
